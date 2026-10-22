@@ -1,0 +1,6 @@
+{
+  "name": "Tem Nada Aqui",
+  "description": "Página minimalista em branco com texto roxo e animação de linha de luz em loop.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

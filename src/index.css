@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+.font-display {
+  font-family: 'Syne', 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Shimmer gradient moving continuously across text */
+@keyframes light-sweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Horizontal physical light beam pass */
+@keyframes beam-pass {
+  0% {
+    transform: translateX(-120%) translateY(-50%) rotate(12deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(180%) translateY(-50%) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+/* Horizontal line scan under/between text */
+@keyframes scanline-loop {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+    opacity: 0.2;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 1;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+    opacity: 0.2;
+  }
+}
+
+/* Lens flare spin */
+@keyframes flare-spin {
+  0% {
+    transform: rotate(0deg) scale(0.9);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(0.9);
+  }
+}
+
+/* Soft ambient glow pulse */
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.05);
+  }
+}
+
+.animate-light-sweep {
+  background-size: 250% 100%;
+  animation: light-sweep var(--sweep-duration, 3s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-beam-pass {
+  animation: beam-pass var(--beam-duration, 3s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-scanline {
+  animation: scanline-loop var(--scan-duration, 3s) ease-in-out infinite;
+}
+
+.animate-flare {
+  animation: flare-spin 12s linear infinite;
+}
+
+.animate-ambient-glow {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
